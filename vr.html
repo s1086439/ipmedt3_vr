@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="/css/vr.css" rel="stylesheet" type="text/css">
+		<script src="js/pace.min.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/aframe.min.js"></script>
+		<script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/tweets.js"></script>
+		<script src="js/gamepad.js"></script>
+		<script src="js/aframe-gamepad-controls.min.js"></script>
+	</head>
+	<body>
+		<a-scene id="scene" inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js" >
+			<a-assets>
+				<img id="vloer-img" src="images/vloer.jpg">
+				<img id="hout-1-img" src="models/textures/hout_1.jpg">
+				<img id="hout-2-img" src="models/textures/hout_2.jpg">
+				<img id="karton-img" src="models/textures/karton.jpg">
+				<img id="instructies-1-img" src="images/instructies-1.png">
+				<img id="instructies-2-img" src="images/instructies-2.jpg">
+
+				<a-asset-item id="schroevendraaier-obj" src="models/schroevendraaier.obj"></a-asset-item>
+				<a-asset-item id="schroevendraaier-mtl" src="models/schroevendraaier.mtl"></a-asset-item>
+
+				<a-asset-item id="frame-obj" src="models/frame.obj"></a-asset-item>
+				<a-asset-item id="hoofdsteun-obj" src="models/hoofdsteun.obj"></a-asset-item>
+				<a-asset-item id="plank-voor-obj" src="models/plank_voor.obj"></a-asset-item>
+				<a-asset-item id="plank-links-obj" src="models/plank_links.obj"></a-asset-item>
+				<a-asset-item id="plank-rechts-obj" src="models/plank_rechts.obj"></a-asset-item>
+				<a-asset-item id="poot-links-voor-obj" src="models/poot_links_voor.obj"></a-asset-item>
+				<a-asset-item id="poot-links-achter-obj" src="models/poot_links_achter.obj"></a-asset-item>
+				<a-asset-item id="poot-rechts-voor-obj" src="models/poot_rechts_voor.obj"></a-asset-item>
+				<a-asset-item id="poot-rechts-achter-obj" src="models/poot_rechts_achter.obj"></a-asset-item>
+				<a-asset-item id="lattenbodem-obj" src="models/lattenbodem.obj"></a-asset-item>
+
+				<a-asset-item id="instructies-obj" src="models/instructies.obj"></a-asset-item>
+				<a-asset-item id="doos-1-obj" src="models/doos_1.obj"></a-asset-item>
+				<a-asset-item id="doos-1-mtl" src="models/doos_1.mtl"></a-asset-item>
+				<a-asset-item id="doos-2-obj" src="models/doos_2.obj"></a-asset-item>
+				<a-asset-item id="doos-2-mtl" src="models/doos_2.mtl"></a-asset-item>
+
+				<a-asset-item id="plant-obj" src="models/plant.obj"></a-asset-item>
+				<a-asset-item id="plant-mtl" src="models/plant.mtl"></a-asset-item>
+
+				<a-asset-item id="huis-obj" src="models/huis.obj"></a-asset-item>
+				<a-asset-item id="plafond-obj" src="models/plafond.obj"></a-asset-item>
+				<a-asset-item id="kamer-obj" src="models/kamer.obj"></a-asset-item>
+				<a-asset-item id="dak-obj" src="models/dak.obj"></a-asset-item>
+				<a-asset-item id="boom-1-bladeren-obj" src="models/boom_1_bladeren.obj"></a-asset-item>
+				<a-asset-item id="boom-2-bladeren-obj" src="models/boom_2_bladeren.obj"></a-asset-item>
+				<a-asset-item id="boomstronk-1-obj" src="models/boomstronk_1.obj"></a-asset-item>
+				<a-asset-item id="boomstronk-2-obj" src="models/boomstronk_2.obj"></a-asset-item>
+				<a-asset-item id="weg-obj" src="models/weg.obj"></a-asset-item>
+				<a-asset-item id="gras-obj" src="models/gras.obj"></a-asset-item>
+				<a-asset-item id="pad-obj" src="models/pad.obj"></a-asset-item>
+				<a-asset-item id="huisnummer-obj" src="models/huisnummer.obj"></a-asset-item>
+				<a-asset-item id="deur-obj" src="models/deur.obj"></a-asset-item>
+				<a-asset-item id="handvat-obj" src="models/handvat.obj"></a-asset-item>
+				<a-asset-item id="voorraam-obj" src="models/voorraam.obj"></a-asset-item>
+				<a-asset-item id="stoep-obj" src="models/stoep.obj"></a-asset-item>
+				<a-asset-item id="hek-obj" src="models/hek.obj"></a-asset-item>
+				<a-asset-item id="auto-obj" src="models/auto.obj"></a-asset-item>
+				<a-asset-item id="auto-mtl" src="models/auto.mtl"></a-asset-item>
+
+				<a-asset-item id="tafel-obj" src="models/tafel.obj"></a-asset-item>
+
+				<a-asset-item id="deurframe-obj" src="models/deurframe.obj"></a-asset-item>
+
+				<a-asset-item id="hamer-obj" src="models/hamer.obj"></a-asset-item>
+				<a-asset-item id="hamer-mtl" src="models/hamer.mtl"></a-asset-item>
+
+				<a-asset-item id="radio-obj" src="models/radio.obj"></a-asset-item>
+				<a-asset-item id="radio-mtl" src="models/radio.mtl"></a-asset-item>
+
+				<a-asset-item id="kast-obj" src="models/kast.obj"></a-asset-item>
+
+				<a-asset-item id="matras-obj" src="models/matras.obj"></a-asset-item>
+
+				<a-asset-item id="kussen-obj" src="models/kussen.obj"></a-asset-item>
+
+				<img id="schroevendraaier-icoon-0-img" src="images/icons/schroevendraaier-0.png">
+				<img id="schroevendraaier-icoon-1-img" src="images/icons/schroevendraaier-1.png">
+				<img id="schroevendraaier-icoon-2-img" src="images/icons/schroevendraaier-2.png">
+				<img id="schroevendraaier-icoon-3-img" src="images/icons/schroevendraaier-3.png">
+
+				<img id="pijl-img" src="images/icons/pijl.png">
+
+				<img id="pijl-2-img" src="images/icons/pijl_2.png">
+
+				<img id="vrpark-controller-instructies-img" src="images/vrpark_controller_instructies.png">
+
+			</a-assets>
+
+			<a-entity position="0 0 -6" rotation="0 180 0">
+				<a-entity id="camera" gamepad-controls="lookEnabled: false; acceleration: 120" camera="userHeight: 1.6; fov:70" look-controls wasd-controls="enabled: true; acceleration: 400" position="0 5 50">
+					<a-entity cursor="fuse: false" raycaster="far: 20; interval: 1000"
+						position="0 0 -8"
+						rotation="0 0 0"
+						geometry="primitive: ring; radiusOuter: 0.2; radiusInner: 0.1;"
+						material="color: #0057a3; shader: flat; opacity: 0.8">
+						<a-animation begin="hovering" attribute="material.color" from="#0057a3" to="red" dur="100"></a-animation>
+						<a-animation begin="leaving" attribute="material.color" from="red" to="#0057a3" dur="100"></a-animation>
+					</a-entity>
+				</a-entity>
+			</a-entity>
+
+			<a-sky id="black-sky" color="black" opacity="1"></a-sky>
+			<a-sky id="sky" color="#95aec7" opacity="1"></a-sky>
+			<audio controls loop id="omgeving-audio" src=""></audio>
+			<audio id="interactie-audio" src=""></audio>
+
+
+			<a-entity scene-group id="scene-group-1" visible="true">
+				<a-entity id="buiten" position="-8 0 -30">
+					<a-entity class="light" id="light-1" light="type: ambient; color: white; intensity: .2" position="-30 -35 -40"></a-entity>
+					<a-entity class="light" id="light-2" light="type: directional; color: #f4a142; intensity: .5" position="-100 40 -3"></a-entity>
+
+					<a-entity id="navigatie-pijlen">
+					<a-image class="navigatie-pijl" src="#pijl-2-img"  position="0 2 -5" scale="2 2 2" rotation="90 0 0">
+						<a-animation dur="2000" repeat="indefinite" attribute="opacity" direction="alternate" from="0" to="1"></a-animation>
+					</a-image>
+					<a-image class="navigatie-pijl" src="#pijl-2-img"  position="0 2 -10" scale="2 2 2" rotation="90 0 0">
+						<a-animation dur="2000" repeat="indefinite" attribute="opacity" direction="alternate" from="0" to="1"></a-animation>
+					</a-image>
+					<a-image class="navigatie-pijl" src="#pijl-2-img"  position="0 2 -15" scale="2 2 2" rotation="90 0 0">
+						<a-animation dur="2000" repeat="indefinite" attribute="opacity" direction="alternate" from="0" to="1"></a-animation>
+					</a-image>
+					<a-image class="navigatie-pijl" src="#pijl-2-img"  position="0 2 -20" scale="2 2 2" rotation="90 0 0">
+						<a-animation dur="2000" repeat="indefinite" attribute="opacity" direction="alternate" from="0" to="1"></a-animation>
+					</a-image>
+				</a-entity>
+
+					<a-image look-at:"#camera" src="#vrpark-controller-instructies-img"  position="10 5 -15" scale="8 8 8" rotation="0 180 0"></a-image>
+
+					<a-obj-model id="auto" obj-model="obj: #auto-obj; mtl: #auto-mtl" position="10 0 25"></a-obj-model>
+
+					<a-obj-model id="deurframe" obj-model="obj: #deurframe-obj" material="shader: standard; color: #174da5"></a-obj-model>
+					<a-obj-model id="huis" obj-model="obj: #huis-obj" material="shader: standard; color: #e2ddd9" position="8 0 30"></a-obj-model>
+					<a-obj-model id="plafond" obj-model="obj: #plafond-obj" material="shader: standard; color: #77685d" position="8 0 30"></a-obj-model>
+					<a-obj-model id="dak" obj-model="obj: #dak-obj" material="shader: standard; color: #56493f" position="8 0 30"></a-obj-model>
+					<a-obj-model id="boomstronk-1" obj-model="obj: #boomstronk-1-obj" material="shader: flat; color: #3d3324" position="8 0 30"></a-obj-model>
+					<a-obj-model id="boomstronk-2" obj-model="obj: #boomstronk-2-obj" material="shader: flat; color: #3d3324" position="8 0 30"></a-obj-model>
+					<a-obj-model id="weg" obj-model="obj: #weg-obj" material="shader: flat; color: #6b6b6b" position="8 0 30"></a-obj-model>
+					<a-obj-model id="boom-1-bladeren" obj-model="obj: #boom-1-bladeren-obj" material="shader: flat; color: #1c5e18" position="8 0 30"></a-obj-model>
+					<a-obj-model id="boom-2-bladeren" obj-model="obj: #boom-2-bladeren-obj" material="shader: flat; color: #1c5e18" position="8 0 30"></a-obj-model>
+					<a-obj-model id="hek" obj-model="obj: #hek-obj" material="shader: flat; color: #3d3324" position="8 0 30"></a-obj-model>
+					<a-obj-model id="gras" obj-model="obj: #gras-obj" material="shader: flat; color: #3d7223" position="8 0 30"></a-obj-model>
+					<a-obj-model id="pad" obj-model="obj: #pad-obj" material="shader: flat; color: #c1a687" position="8 0 30"></a-obj-model>
+					<a-obj-model id="voorraam" obj-model="obj: #voorraam-obj" material="shader: standard; color: #bae9ff" position="8 0 30"></a-obj-model>
+					<a-obj-model id="huisnummer" obj-model="obj: #huisnummer-obj" material="shader: standard; color: #174da5" position="8 0 30"></a-obj-model>
+					<a-entity>
+						<a-obj-model id="deur" obj-model="obj: #deur-obj" material="shader: standard; color: #72715a" position="0 0 .2"></a-obj-model>
+						<a-obj-model id="handvat" obj-model="obj: #handvat-obj" material="shader: standard; color: #000" position="0 0 0"></a-obj-model>
+						<a-animation attribute="rotation" begin="rotate" dur="1000" fill="forwards" to="0 120 0"></a-animation>
+						<a-animation attribute="position" begin="rotate" from="0 0 .2" to="4 0 2.8"></a-animation>
+						<a-animation attribute="rotation" begin="dicht" dur="1000" fill="forwards" to="0 0 0"></a-animation>
+						<a-animation attribute="position" begin="dicht" from="4 0 2.8" to="0 0 .2"></a-animation>
+					</a-entity>
+					<a-obj-model id="stoep" obj-model="obj: #stoep-obj" material="flat: standard; color: #c4c4c4" position="8 0 30"></a-obj-model>
+
+					<a-image id="grond" material="shader: flat; color: #bcb596" scale="500 500 0" position="0 -.1 0" rotation="-90 0 0" opacity="1"></a-image>
+				</a-entity>
+
+
+			<a-entity id="binnen">
+				<a-entity class="light" id="light-3" light="type: ambient; color: white; intensity: .5"></a-entity>
+				<a-entity update-text id="object-title" look-at="#camera" bmfont-text="fnt: fonts/DejaVu-sdf.fnt; fntImage: fonts/DejaVu-sdf.png" scale="4 4 4" position="0 7 0" rotation="0 180 0"></a-entity>
+
+				<a-image id="floor" position="0 0 0" rotation="-90 0 0" material="src: #vloer-img; repeat: 2 2" scale="59.5 59.5 59.5" opacity="1"></a-image>
+
+				<a-entity cursor-listener class="overige" id="doos-1" obj-model="obj: #doos-1-obj; mtl: #doos-1-mtl" position="10 0 -17" rotation="0 45 0"></a-entity>
+				<a-entity cursor-listener class="overige" id="doos-2" obj-model="obj: #doos-2-obj; mtl: #doos-2-mtl" position="-25 0 2" rotation="0 55 0"></a-entity>
+
+				<a-obj-model cursor-listener class="overige tafel" id="tafel" obj-model="obj: #tafel-obj" material="shader: standard; src: #hout-2-img" position="-26.5 0 15" rotation="0 90 0"></a-obj-model>
+
+				<a-obj-model cursor-listener class="overige plant" id="plant-1" obj-model="obj: #plant-obj; mtl: #plant-mtl" position="26 0 26"></a-obj-model>
+				<a-obj-model cursor-listener class="overige plant" id="plant-2" obj-model="obj: #plant-obj; mtl: #plant-mtl" position="26 0 -26">></a-obj-model>
+				<a-obj-model cursor-listener class="overige plant" id="plant-3" obj-model="obj: #plant-obj; mtl: #plant-mtl" position="-26 0 26">></a-obj-model>
+
+				<a-obj-model cursor-listener class="overige kast" id="kast" obj-model="obj: #kast-obj" material="shader: standard; src: #hout-2-img" position="28 0 15" rotation="0 90 0"></a-obj-model>
+
+				<a-obj-model cursor-listener class="overige radio" sound="src: url(audio/hep_cats.mp3); volume: 4; loop: true" id="radio" preload="auto" obj-model="obj: #radio-obj; mtl: #radio-mtl" position="-25 3 12" rotation="0 135 0"></a-obj-model>
+
+				<a-obj-model cursor-listener class="overige papier" id="instructies-1" obj-model="obj: #instructies-obj" material="shader: flat; src: #instructies-1-img" position="0 .12 10" rotation="0 180 0"></a-obj-model>
+				<a-obj-model cursor-listener class="overige papier" id="instructies-2" obj-model="obj: #instructies-obj" material="shader: flat; src: #instructies-2-img" position="8 .12 10" rotation="0 180 0"></a-obj-model>
+
+				<a-obj-model cursor-listener class="overige schroevendraaier" id="schroevendraaier" obj-model="obj: #schroevendraaier-obj; mtl: #schroevendraaier-mtl" scale="2 2 2" position="-10 0 10" rotation="0 90 0"></a-obj-model>
+
+				<a-obj-model cursor-listener class="overige hamer" id="hamer" obj-model="obj: #hamer-obj; mtl: #hamer-mtl" scale="2 2 2" position="-15 0 10" rotation="0 90 0"></a-obj-model>
+
+				<!-- <a-obj-model cursor-listener class="overige inbussleutel" id="inbussleutel" obj-model="obj: #inbussleutel-obj; mtl: #inbussleutel-mtl" scale="2 2 2" position="-5 0 10" rotation="0 90 0"></a-obj-model> -->
+
+				<a-entity id="bed-onderdelen" position="-5 0 0">
+					<a-obj-model cursor-listener class="bed-object hout" id="frame" obj-model="obj: #frame-obj" material="shader: standard; src: #hout-1-img" position="-10 0 0"></a-obj-model>
+					<a-obj-model cursor-listener class="bed-object hout" id="hoofdsteun" obj-model="obj: #hoofdsteun-obj" material="shader: standard; src: #hout-1-img" position="-5 0 0" rotation="90 90 0"></a-obj-model>
+
+					<a-obj-model cursor-listener class="bed-object hout" id="plank-links" obj-model="obj: #plank-links-obj" material="shader: standard; src: #hout-1-img" position="2 0 0"></a-obj-model>
+					<a-obj-model cursor-listener class="bed-object hout" id="plank-rechts" obj-model="obj: #plank-rechts-obj" material="shader: standard; src: #hout-1-img" position="4 0 0"></a-obj-model>
+					<a-obj-model cursor-listener class="bed-object hout" id="plank-voor" obj-model="obj: #plank-voor-obj" material="shader: standard; src: #hout-1-img" position="0 0 0" rotation="0 90 0"></a-obj-model>
+
+					<a-obj-model cursor-listener class="bed-object hout" id="poot-links-voor" obj-model="obj: #poot-links-voor-obj" material="shader: standard; src: #hout-1-img" position="-10 0 -8"></a-obj-model>
+					<a-obj-model cursor-listener class="bed-object hout" id="poot-links-achter" obj-model="obj: #poot-links-achter-obj" material="shader: standard; src: #hout-1-img" position="-8 0 -8"></a-obj-model>
+					<a-obj-model cursor-listener class="bed-object hout" id="poot-rechts-voor" obj-model="obj: #poot-rechts-voor-obj" material="shader: standard; src: #hout-1-img" position="-6 0 -8"></a-obj-model>
+					<a-obj-model cursor-listener class="bed-object hout" id="poot-rechts-achter" obj-model="obj: #poot-rechts-achter-obj" material="shader: standard; src: #hout-1-img" position="-4 0 -8"></a-obj-model>
+
+					<a-obj-model cursor-listener class="bed-object hout" id="lattenbodem" obj-model="obj: #lattenbodem-obj" material="shader: standard; src: #hout-1-img" position="-15 0 -10"></a-obj-model>
+				</a-entity>
+
+				<a-entity bed-onderdelen="opacity: .5" bed-voorbeeld id="bed-voorbeeld" position="10 0 0">
+					<a-obj-model class="bed-voorbeeld-object" id="frame-voorbeeld" obj-model="obj: #frame-obj" material="shader: flat; color: #3e66a8" position="0 0.5 0"></a-obj-model>
+					<a-obj-model class="bed-voorbeeld-object" id="hoofdsteun-voorbeeld" obj-model="obj: #hoofdsteun-obj" material="shader: flat; color: #3e66a8" position="0 1.5 3.45"></a-obj-model>
+
+					<a-obj-model class="bed-voorbeeld-object" id="plank-links-voorbeeld" obj-model="obj: #plank-links-obj" material="shader: flat; color: #3e66a8" position="3.4 0.5 0"></a-obj-model>
+					<a-obj-model class="bed-voorbeeld-object" id="plank-rechts-voorbeeld" obj-model="obj: #plank-rechts-obj" material="shader: flat; color: #3e66a8" position="-3.4 0.5 0"></a-obj-model>
+					<a-obj-model class="bed-voorbeeld-object" id="plank-voor-voorbeeld" obj-model="obj: #plank-voor-obj" material="shader: flat; color: #3e66a8" position="0 0.5 -4"></a-obj-model>
+
+					<a-obj-model class="bed-voorbeeld-object" id="poot-links-voor-voorbeeld" obj-model="obj: #poot-links-voor-obj" material="shader: flat; color: #3e66a8" position="3 0 -3.5"></a-obj-model>
+					<a-obj-model class="bed-voorbeeld-object" id="poot-links-achter-voorbeeld" obj-model="obj: #poot-links-achter-obj" material="shader: flat; color: #3e66a8" position="3 0 3.5"></a-obj-model>
+					<a-obj-model class="bed-voorbeeld-object" id="poot-rechts-voor-voorbeeld" obj-model="obj: #poot-rechts-voor-obj" material="shader: flat; color: #3e66a8" position="-3 0 -3.5"></a-obj-model>
+					<a-obj-model class="bed-voorbeeld-object" id="poot-rechts-achter-voorbeeld" obj-model="obj: #poot-rechts-achter-obj" material="shader: flat; color: #3e66a8" position="-3 0 3.5"></a-obj-model>
+
+					<a-obj-model class="bed-voorbeeld-object" id="lattenbodem-voorbeeld" obj-model="obj: #lattenbodem-obj;" material="shader: flat; color: #3e66a8" position="0 0.5 0"></a-obj-model>
+
+					<a-image id="schroevendraaier-icoon" src="#schroevendraaier-icoon-0-img"  position="0 0 0" scale="2 2 2" visible="false"></a-image>
+
+					<a-image id="pijl" src="#pijl-img"  position="0 4 0" scale="2 2 2" visible="false"></a-image>
+
+					<a-entity id="schroefgaten" visible="false">
+						<a-entity class="schroefgat schroefgat-frame" id="frame-schroefgat-1" position="-3.91 1.02 3.25"></a-entity>
+						<a-entity class="schroefgat schroefgat-frame" id="frame-schroefgat-2" position="-3.68 1.30 -3.82"></a-entity>
+						<a-entity class="schroefgat schroefgat-frame" id="frame-schroefgat-3" position="3.79 1.31 3.12"></a-entity>
+						<a-entity class="schroefgat schroefgat-frame" id="frame-schroefgat-4" position="3.78 1.31 -3.72"></a-entity>
+						<a-entity class="schroefgat schroefgat-hoofdsteun" id="hoofdsteun-schroefgat-1" position="-3.07 1.31 4"></a-entity>
+						<a-entity class="schroefgat schroefgat-hoofdsteun" id="hoofdsteun-schroefgat-2" position="2.72 1.49 3.96"></a-entity>
+						<a-entity class="schroefgat spijker-hoofdsteun" id="hoofdsteun-spijkergat-1" position="0.72 1.49 3.96"></a-entity>
+						<a-entity class="schroefgat schroefgat-poot-links-voor" id="poot-links-voor-schroefgat-1r" position="3.22 0.74 -4.24"></a-entity>
+						<a-entity class="schroefgat schroefgat-poot-rechts-voor" id="poot-rechts-voor-schroefgat-1" position="-3.20 0.66 -4.38"></a-entity>
+						<a-entity class="schroefgat schroefgat-poot-links-achter" id="poot-links-achter-schroefgat-1" position="3.62 1.78 3.39"></a-entity>
+						<a-entity class="schroefgat schroefgat-poot-rechts-achter" id="poot-rechts-achter-schroefgat-1" position="-4.28 0.97 3.57"></a-entity>
+						<a-entity class="schroefgat schroefgat-plank-links" id="plank-linksschroefgat-1" position="4.16 0.95 3.29"></a-entity>
+						<a-entity class="schroefgat schroefgat-plank-links" id="plank-links-schroefgat-2" position="4.16 0.95 -3.31"></a-entity>
+						<a-entity class="schroefgat schroefgat-plank-rechts" id="plank-rechts-schroefgat-1" position="-4.00 0.91 3.35"></a-entity>
+						<a-entity class="schroefgat schroefgat-plank-rechts" id="plank-rechts-schroefgat-2" position="-4.00 0.74 -4.41"></a-entity>
+						<a-entity class="schroefgat schroefgat-plank-voor" id="plank-voor-schroefgat-1" position="2.94 1.06 -4.27"></a-entity>
+						<a-entity class="schroefgat schroefgat-plank-voor" id="plank-voor-schroefgat-2" position="-2.94 0.90 -4.27"></a-entity>
+					</a-entity>
+
+				</a-entity>
+			</a-entity>
+			</a-entity>
+
+			<a-entity id="scene-group-2" visible="false">
+				<a-entity class="light" id="light-4" light="type: ambient; color: white; intensity: .5"></a-entity>
+				<a-entity class="light" id="light-5" light="type: directional; color: #EEE; intensity: .5" position="1 1 -3"></a-entity>
+				<a-entity look-at="#camera" bmfont-text="text: Uitgespeeld. Druk op 'opnieuw/F5/C' om te beendigen. Muziek: Kevin Macleod; fnt: fonts/DejaVu-sdf.fnt; fntImage: fonts/DejaVu-sdf.png" scale="4 4 4" position="0 7 0" rotation="0 180 0"></a-entity>
+				<a-entity position="-5 0 0" id="bed-voorbeeld-2" position="0 0 0" rotation="">
+					<a-obj-model class="bed-object hout" id="frame" obj-model="obj: #frame-obj" material="shader: standard; src: #hout-1-img" position="0 0.5 0"></a-obj-model>
+					<a-obj-model class="bed-object hout" id="hoofdsteun" obj-model="obj: #hoofdsteun-obj"  material="shader: standard; src: #hout-1-img" position="0 1.5 3.45"></a-obj-model>
+
+					<a-obj-model class="bed-object hout" id="plank-links" obj-model="obj: #plank-links-obj" material="shader: standard; src: #hout-1-img" position="3.4 0.5 0"></a-obj-model>
+					<a-obj-model class="bed-object hout" id="plank-rechts" obj-model="obj: #plank-rechts-obj" material="shader: standard; src: #hout-1-img" position="-3.4 0.5 0"></a-obj-model>
+					<a-obj-model class="bed-object hout" id="plank-voor" obj-model="obj: #plank-voor-obj" material="shader: standard; src: #hout-1-img" position="0 0.5 -4"></a-obj-model>
+
+					<a-obj-model class="bed-object hout" id="poot-links-voor" obj-model="obj: #poot-links-voor-obj" material="shader: standard; src: #hout-1-img" position="3 0 -3.5"></a-obj-model>
+					<a-obj-model class="bed-object hout" id="poot-links-achter" obj-model="obj: #poot-links-achter-obj" material="shader: standard; src: #hout-1-img" position="3 0 3.5"></a-obj-model>
+					<a-obj-model class="bed-object hout" id="poot-rechts-voor" obj-model="obj: #poot-rechts-voor-obj" material="shader: standard; src: #hout-1-img" position="-3 0 -3.5"></a-obj-model>
+					<a-obj-model class="bed-object hout" id="poot-rechts-achter" obj-model="obj: #poot-rechts-achter-obj" material="shader: standard; src: #hout-1-img" position="-3 0 3.5"></a-obj-model>
+
+					<a-obj-model class="bed-object hout" id="lattenbodem" obj-model="obj: #lattenbodem-obj" material="shader: standard; src: #hout-1-img" position="0 0.5 0"></a-obj-model>
+
+					<a-obj-model class="bed-object hout" id="matras" obj-model="obj: #matras-obj" material="shader: standard; color: #bababa" position="0 1 -.3"></a-obj-model>
+
+					<a-obj-model class="bed-object hout" id="kussen-1" obj-model="obj: #kussen-obj" material="shader: standard; color: #bababa" position="-1.2 2 1.9"></a-obj-model>
+					<a-obj-model class="bed-object hout" id="kussen-2" obj-model="obj: #kussen-obj" material="shader: standard; color: #bababa" position="1.2 2 1.9"></a-obj-model>
+
+				</a-entity>
+			</a-entity>
+
+		</a-scene>
+	</body>
+</html>
